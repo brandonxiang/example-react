@@ -1,10 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
-import Wrap from './Wrap';
+import List from './List';
 import './index.css';
 
-ReactDOM.render(
-  <Wrap />,
-  document.getElementById('root')
+ReactDOM.render( < List / > ,
+    document.getElementById('root')
 );

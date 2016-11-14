@@ -3,7 +3,7 @@ import App from './App.js'
 import { ChromePicker } from 'react-color'
 import ButtonExample from './ButtonExample'
 
-class Warp extends Component {
+class List extends Component {
     render() {
         return ( < div >
             < App title = "Hello World" / >
@@ -14,4 +14,4 @@ class Warp extends Component {
     }
 }
 
-export default Warp;
+export default List;
