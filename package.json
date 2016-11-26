@@ -6,6 +6,7 @@
     "react-scripts": "0.7.0"
   },
   "dependencies": {
+    "antd": "^2.4.3",
     "react": "^15.3.2",
     "react-color": "^2.4.3",
     "react-dom": "^15.3.2",
