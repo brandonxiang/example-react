@@ -20,6 +20,9 @@ export default React.createClass({
                     <li>
                         <Link to="/popitem"> PopItem </Link>
                     </li>
+                    <li>
+                        <Link to="/todobox"> TodoBox </Link>
+                    </li>
                 </ul>
             </div>
         )

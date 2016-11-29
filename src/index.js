@@ -8,6 +8,7 @@ import App from './modules/App'
 import ButtonExample from './modules/ButtonExample'
 import SliderNum from './modules/SliderNum'
 import PopItem from './modules/popitem'
+import TodoBox from './modules/todobox'
 
 
 render((
@@ -17,5 +18,6 @@ render((
     <Route path="/buttonexample" component={ButtonExample}/>
     <Route path="/slidernum" component={SliderNum}/>
     <Route path="/popitem" component={PopItem}/>
+    <Route path="/todobox" component={TodoBox}/>
   </Router>
 ), document.getElementById('root'))
