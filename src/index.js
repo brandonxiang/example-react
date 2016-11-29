@@ -9,6 +9,7 @@ import ButtonExample from './modules/ButtonExample'
 import SliderNum from './modules/SliderNum'
 import PopItem from './modules/popitem'
 import TodoBox from './modules/todobox'
+import ZoomLevel from './modules/ZoomLevel'
 
 
 render((
@@ -19,5 +20,6 @@ render((
     <Route path="/slidernum" component={SliderNum}/>
     <Route path="/popitem" component={PopItem}/>
     <Route path="/todobox" component={TodoBox}/>
+    <Route path="/zoomlevel" component={ZoomLevel}/>
   </Router>
 ), document.getElementById('root'))

@@ -23,6 +23,9 @@ export default React.createClass({
                     <li>
                         <Link to="/todobox"> TodoBox </Link>
                     </li>
+                    <li>
+                        <Link to="/zoomlevel"> ZoomLevel </Link>
+                    </li>
                 </ul>
             </div>
         )
