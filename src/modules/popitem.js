@@ -13,6 +13,7 @@ export default class PopItem extends React.Component{
 
     return <Pop
        name={"testPopName"}
+       tips={"tips"}
        content={content}
        input={input}
     ></Pop>
