@@ -17,6 +17,9 @@ export default React.createClass({
                     <li>
                         <Link to="/slidernum"> SliderNum </Link>
                     </li>
+                    <li>
+                        <Link to="/popitem"> PopItem </Link>
+                    </li>
                 </ul>
             </div>
         )

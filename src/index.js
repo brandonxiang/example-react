@@ -7,6 +7,7 @@ import List from './modules/List'
 import App from './modules/App'
 import ButtonExample from './modules/ButtonExample'
 import SliderNum from './modules/SliderNum'
+import PopItem from './modules/popitem'
 
 
 render((
@@ -15,5 +16,6 @@ render((
     <Route path="/app" component={App}/>
     <Route path="/buttonexample" component={ButtonExample}/>
     <Route path="/slidernum" component={SliderNum}/>
+    <Route path="/popitem" component={PopItem}/>
   </Router>
 ), document.getElementById('root'))
