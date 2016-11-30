@@ -4,6 +4,7 @@ import SliderNum from './SliderNum'
 import {Row, Col,Button} from 'antd'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'antd/dist/antd.css'
+import _ from 'lodash'
 
 
 export default class ZoomLevel extends React.Component{
@@ -34,6 +35,13 @@ export default class ZoomLevel extends React.Component{
     this.setState({data});
   }
 
+  sortByZoom(data){
+    return  _.sortBy(data, function(item) {
+      return item.zoom;
+    });
+
+  }
+
 
   generateId() {
     return Math.floor(Math.random() * 9000) + 1000;
@@ -45,7 +53,9 @@ export default class ZoomLevel extends React.Component{
     var id = this.generateId();
 
     data = data.concat([{"id": id, "zoom": data[0].zoom+1, "value": data[0].value}]);
+    data = this.sortByZoom(data);
     this.setState({data});
+
   }
 
   render() {
