@@ -1,17 +1,19 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import SliderNum from './SliderNum'
+import {Row, Col,Button} from 'antd'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import 'antd/dist/antd.css'
+
 
 export default class ZoomLevel extends React.Component{
    state =  {
       data: [
-        {"id": "0001", "task":"吃饭", "complete": "false"},
-        {"id": "0002", "task":"睡觉", "complete": "false"},
-        {"id": "0003", "task":"打豆豆", "complete": "true"},
+        {"id": "0001", "zoom":7, "value": 0.25},
+        {"id": "0002", "zoom":20, "value": 30},
       ]
     }
 
-  // 根据id删除一项任务
   handleTaskDelete(taskId) {
     var data = this.state.data;
     data = data.filter(function(task) {
@@ -20,7 +22,7 @@ export default class ZoomLevel extends React.Component{
     this.setState({data});
   }
 
-  // 切换一项任务的完成状态
+
   handleToggleComplete(taksId) {
     var data = this.state.data;
     for(var i in data) {
@@ -32,52 +34,44 @@ export default class ZoomLevel extends React.Component{
     this.setState({data});
   }
 
-  // 给新增的任务一个随机的id
+
   generateId() {
     return Math.floor(Math.random() * 9000) + 1000;
   }
 
-  // 新增一项任务
-  handleSubmit(task) {
+
+  handleSubmit() {
     var data = this.state.data;
     var id = this.generateId();
-    var complete = "false";
-    data = data.concat([{"id": id, "task": task, "complete": "false"}]);
+
+    data = data.concat([{"id": id, "zoom": data[0].zoom+1, "value": data[0].value}]);
     this.setState({data});
   }
 
   render() {
-    var statistics = {
-      // 统计任务总数及完成的数量
-      todoCount: this.state.data.length || 0,
-      todoCompleteCount: this.state.data.filter(function(item) {
-        return item.complete === "true";
-      }).length
-    };
+
 
     return (
       <div className="well">
-        <h1 className="text-center">React Todo</h1>
-        <TodoList data={this.state.data}
+        <StopList data={this.state.data}
           deleteTask={this.handleTaskDelete.bind(this)}
           toggleComplete={this.handleToggleComplete.bind(this)}
-          todoCount={statistics.todoCount}
-          todoCompleteCount={statistics.todoCompleteCount} />
-        <TodoForm submitTask={this.handleSubmit.bind(this)} />
+          />
+        <NewBtn submitTask={this.handleSubmit.bind(this)} />
       </div>
     )
   }
 }
 
-class TodoList extends React.Component{
+class StopList extends React.Component{
   render() {
     var taskList = this.props.data.map(function(listItem) {
       return (
-        <TodoItem
+        <StopItem
           taskId={listItem.id}
           key={listItem.id}
-          task={listItem.task}
-          complete={listItem.complete}
+          zoom={listItem.zoom}
+          value={listItem.value}
           deleteTask={this.props.deleteTask}
           toggleComplete={this.props.toggleComplete} />
       )
@@ -86,13 +80,12 @@ class TodoList extends React.Component{
     return (
         <ul className="list-group">
           {taskList}
-          <TodoFooter todoCount={this.props.todoCount} todoCompleteCount={this.props.todoCompleteCount} />
         </ul>
     )
   }
 }
 
-class TodoItem extends React.Component{
+class StopItem extends React.Component{
   toggleComplete() {
     this.props.toggleComplete(this.props.taskId);
   }
@@ -101,7 +94,6 @@ class TodoItem extends React.Component{
     this.props.deleteTask(this.props.taskId);
   }
 
-  // 鼠标移入显示删除按钮
   handleMouseOver() {
     ReactDOM.findDOMNode(this.refs.deleteBtn).style.display = "inline";
   }
@@ -111,68 +103,39 @@ class TodoItem extends React.Component{
   }
 
   render() {
-    var task = this.props.task;
-    var classes = "list-group-item"
-    var itemChecked;
-    if (this.props.complete === "true") {
-      task = <s>{task}</s>
-      itemChecked = true;
-      classes += " list-group-item-success"
-    } else {
-      itemChecked = false;
-    }
+
 
     return (
-      <li className={classes}
-        onMouseOver={this.handleMouseOver.bind(this)}
-        onMouseOut={this.handleMouseOut.bind(this)}>
-        <input type="checkbox" checked={itemChecked} onChange={this.toggleComplete.bind(this)} className="pull-left" />
-        {task}
-        <div className="pull-right">
+      <li>
+      <Row>
+        <Col span={9} offset={1}>
+        <SliderNum value={this.props.zoom} min={1} max={22} step={1}/>
+        </Col>
+        <Col span={9} offset={1}>
+        <SliderNum value={this.props.value} step={1}/>
+        </Col>
+        <Col span={4}>
           <button type="button" className="btn btn-xs close" onClick={this.deleteTask.bind(this)} ref="deleteBtn">删除</button>
-        </div>
+        </Col>
+        </Row>
       </li>
     );
   }
 }
 
-class TodoFooter extends React.Component{
-  render() {
-    return (
-      <li className="list-group-item">{this.props.todoCompleteCount}已完成 / {this.props.todoCount}总数</li>
-    )
-  }
-}
-
-class TodoForm extends React.Component{
+class NewBtn extends React.Component{
   submitTask(e) {
     e.preventDefault();
-    var task = ReactDOM.findDOMNode(this.refs.task).value.trim();
-    if (!task) {
-      return;
-    }
-    this.props.submitTask(task);
-    ReactDOM.findDOMNode(this.refs.task).value = "";
+    this.props.submitTask();
   }
 
   render() {
     return (
-      <div>
-        <hr />
-        <form className="form-horizontal" onSubmit={this.submitTask.bind(this)}>
-          <div className="form-group">
-            <label htmlFor="task" className="col-md-2 control-label">Task</label>
-            <div className="col-md-10">
-              <input type="text" id="task" ref="task" className="form-control" placeholder="你想做点什么"></input>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-md-12 text-right">
-              <input type="submit" value="Save Task" className="btn btn-primary" />
-            </div>
-          </div>
-        </form>
-      </div>
+      <Button
+       type = "primary"
+       icon = "plus"
+       onClick={this.submitTask.bind(this)}
+       >Add Stop</Button>
     )
   }
 }
