@@ -2,8 +2,6 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import SliderNum from './SliderNum'
 import {Row, Col,Button} from 'antd'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import 'antd/dist/antd.css'
 import _ from 'lodash'
 
 
@@ -62,7 +60,7 @@ export default class ZoomLevel extends React.Component{
 
 
     return (
-      <div className="well">
+      <div>
         <StopList data={this.state.data}
           deleteTask={this.handleTaskDelete.bind(this)}
           toggleComplete={this.handleToggleComplete.bind(this)}
@@ -88,7 +86,7 @@ class StopList extends React.Component{
     }, this);
 
     return (
-        <ul className="list-group">
+        <ul>
           {taskList}
         </ul>
     )
@@ -113,19 +111,19 @@ class StopItem extends React.Component{
   }
 
   render() {
-
+    console.log(this.props.zoom);
 
     return (
       <li>
       <Row>
-        <Col span={9} offset={1}>
+        <Col span={10}>
         <SliderNum value={this.props.zoom} min={1} max={22} step={1}/>
         </Col>
-        <Col span={9} offset={1}>
+        <Col span={10}>
         <SliderNum value={this.props.value} step={1}/>
         </Col>
         <Col span={4}>
-          <button type="button" className="btn btn-xs close" onClick={this.deleteTask.bind(this)} ref="deleteBtn">删除</button>
+          <Button type="primary" onClick={this.deleteTask.bind(this)} icon="delete" ref="deleteBtn">删除</Button>
         </Col>
         </Row>
       </li>
