@@ -1,5 +1,6 @@
 import React from 'react'
 import { Popover, Form, Tooltip, Icon } from 'antd'
+import PopContent from './popcontent'
 const FormItem = Form.Item;
 
 class Pop extends React.Component{
@@ -8,14 +9,17 @@ class Pop extends React.Component{
       name:React.PropTypes.string.isRequired,
       content:React.PropTypes.element,
       input:React.PropTypes.element,
-      tips:React.PropTypes.string
+      tips:React.PropTypes.string,
+      title: React.PropTypes.string
     }
 
     render (){
-        const formItemLayout = {
-			labelCol: { span: 10 },
-			wrapperCol: { span: 12 },
-		};
+      const formItemLayout = {
+  			labelCol: { span: 10 },
+  			wrapperCol: { span: 12 },
+  		};
+
+        const content = <PopContent title={this.props.title}/>
 
         return <Form horizontal>
         <FormItem
@@ -29,7 +33,7 @@ class Pop extends React.Component{
           </span>
         )}
         >
-         <Popover placement="right" content={this.props.content} trigger="click">
+         <Popover placement="right" content={content} trigger="click">
            {this.props.input}
         </Popover>
         </FormItem>

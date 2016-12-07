@@ -8,6 +8,7 @@
   "dependencies": {
     "antd": "^2.4.3",
     "bootstrap": "^3.3.7",
+    "lodash": "^4.17.2",
     "react": "^15.3.2",
     "react-color": "^2.4.3",
     "react-dom": "^15.3.2",

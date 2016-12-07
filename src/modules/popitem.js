@@ -2,10 +2,14 @@ import React from 'react'
 import Pop from './pop'
 
 export default class PopItem extends React.Component{
+  constructor(props){
+    super(props)
+    this.state = {
+      name: "Hello Brandon"
+    }
+  }
+
   render(){
-    const content = (<div>
-      <span>Hello</span>
-    </div>)
 
     const input = (
       <input type="text"/>
@@ -14,8 +18,8 @@ export default class PopItem extends React.Component{
     return <Pop
        name={"testPopName"}
        tips={"tips"}
-       content={content}
        input={input}
+       title={this.state.name}
     ></Pop>
   }
 }
