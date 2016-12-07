@@ -10,6 +10,7 @@ import SliderNum from './modules/SliderNum'
 import PopItem from './modules/popitem'
 import TodoBox from './modules/todobox'
 import ZoomLevel from './modules/ZoomLevel'
+import Demo from './modules/RumbleCharts'
 
 
 render((
@@ -21,5 +22,6 @@ render((
     <Route path="/popitem" component={PopItem}/>
     <Route path="/todobox" component={TodoBox}/>
     <Route path="/zoomlevel" component={ZoomLevel}/>
+    <Route path="/rumble" component={Demo}/>
   </Router>
 ), document.getElementById('root'))

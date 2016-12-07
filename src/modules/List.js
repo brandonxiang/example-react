@@ -26,6 +26,9 @@ export default React.createClass({
                     <li>
                         <Link to="/zoomlevel"> ZoomLevel </Link>
                     </li>
+                    <li>
+                        <Link to="/rumble"> Rumble </Link>
+                    </li>
                 </ul>
             </div>
         )

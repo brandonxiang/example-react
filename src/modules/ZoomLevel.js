@@ -103,8 +103,6 @@ class StopItem extends React.Component{
   }
 
   render() {
-
-
     return (
       <li>
       <Row>
