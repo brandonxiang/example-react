@@ -2,8 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import SliderNum from './SliderNum'
 import {Row, Col,Button} from 'antd'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import 'antd/dist/antd.css'
+import _ from 'lodash'
 
 
 export default class ZoomLevel extends React.Component{
@@ -34,6 +33,13 @@ export default class ZoomLevel extends React.Component{
     this.setState({data});
   }
 
+  sortByZoom(data){
+    return  _.sortBy(data, function(item) {
+      return item.zoom;
+    });
+
+  }
+
 
   generateId() {
     return Math.floor(Math.random() * 9000) + 1000;
@@ -45,14 +51,16 @@ export default class ZoomLevel extends React.Component{
     var id = this.generateId();
 
     data = data.concat([{"id": id, "zoom": data[0].zoom+1, "value": data[0].value}]);
+    data = this.sortByZoom(data);
     this.setState({data});
+
   }
 
   render() {
 
 
     return (
-      <div className="well">
+      <div>
         <StopList data={this.state.data}
           deleteTask={this.handleTaskDelete.bind(this)}
           toggleComplete={this.handleToggleComplete.bind(this)}
@@ -78,7 +86,7 @@ class StopList extends React.Component{
     }, this);
 
     return (
-        <ul className="list-group">
+        <ul>
           {taskList}
         </ul>
     )
@@ -106,14 +114,14 @@ class StopItem extends React.Component{
     return (
       <li>
       <Row>
-        <Col span={9} offset={1}>
+        <Col span={10}>
         <SliderNum value={this.props.zoom} min={1} max={22} step={1}/>
         </Col>
-        <Col span={9} offset={1}>
+        <Col span={10}>
         <SliderNum value={this.props.value} step={1}/>
         </Col>
         <Col span={4}>
-          <button type="button" className="btn btn-xs close" onClick={this.deleteTask.bind(this)} ref="deleteBtn">删除</button>
+          <Button type="primary" onClick={this.deleteTask.bind(this)} icon="delete" ref="deleteBtn">删除</Button>
         </Col>
         </Row>
       </li>
