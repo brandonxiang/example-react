@@ -11,6 +11,7 @@ import PopItem from './modules/popitem'
 import TodoBox from './modules/todobox'
 import ZoomLevel from './modules/ZoomLevel'
 import Demo from './modules/RumbleCharts'
+import NavigationControl from './modules/navigationcontrol'
 
 
 render((
@@ -23,5 +24,6 @@ render((
     <Route path="/todobox" component={TodoBox}/>
     <Route path="/zoomlevel" component={ZoomLevel}/>
     <Route path="/rumble" component={Demo}/>
+    <Route path="/navigationcontrol" component={NavigationControl}/>
   </Router>
 ), document.getElementById('root'))

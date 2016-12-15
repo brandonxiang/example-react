@@ -29,6 +29,9 @@ export default React.createClass({
                     <li>
                         <Link to="/rumble"> Rumble </Link>
                     </li>
+                    <li>
+                        <Link to="/navigationcontrol"> NavigationControl </Link>
+                    </li>
                 </ul>
             </div>
         )
