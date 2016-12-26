@@ -12,6 +12,7 @@ import TodoBox from './modules/todobox'
 import ZoomLevel from './modules/ZoomLevel'
 import Demo from './modules/RumbleCharts'
 import NavigationControl from './modules/navigationcontrol'
+import Autobind from './modules/Autobind'
 
 
 render((
@@ -25,5 +26,6 @@ render((
     <Route path="/zoomlevel" component={ZoomLevel}/>
     <Route path="/rumble" component={Demo}/>
     <Route path="/navigationcontrol" component={NavigationControl}/>
+    <Route path="/autobind" component={Autobind}/>
   </Router>
 ), document.getElementById('root'))

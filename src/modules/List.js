@@ -32,6 +32,9 @@ export default React.createClass({
                     <li>
                         <Link to="/navigationcontrol"> NavigationControl </Link>
                     </li>
+                    <li>
+                        <Link to="/autobind"> Autobind </Link>
+                    </li>
                 </ul>
             </div>
         )
