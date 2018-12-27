@@ -1,7 +1,7 @@
 {
   "name": "example-react",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "index.ts",
   "repository": "https://github.com/brandonxiang/example-react.git",
   "author": "brandonxiang <1542453460@qq.com>",
   "license": "MIT",
@@ -22,14 +22,18 @@
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.2.0",
     "@babel/preset-react": "^7.0.0",
+    "@babel/preset-typescript": "^7.1.0",
     "babel-loader": "^8.0.4",
     "css-loader": "^2.0.1",
     "html-webpack-plugin": "^3.2.0",
+    "typescript": "^3.2.2",
     "webpack": "^4.27.1",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.10"
   },
   "dependencies": {
+    "@types/react": "^16.7.17",
+    "@types/react-dom": "^16.0.11",
     "react": "^16.6.3",
     "react-dom": "^16.6.3"
   }
