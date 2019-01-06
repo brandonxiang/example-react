@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const value = 'demo1';
-const buttonName = 'submit';
+const value: string = 'demo1';
+const buttonName: string = 'submit';
 
 ReactDOM.render(
     <div>
