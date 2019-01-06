@@ -9,7 +9,6 @@ module.exports = {
   },
   devServer: {
     contentBase: path.resolve(__dirname, 'dist'),
-    compress: true,
     port: 9000,
   },
   module: {
@@ -19,13 +18,11 @@ module.exports = {
         use: 'babel-loader',
         exclude: /node_modules/,
       },
-      { test: /\.css$/, use: 'css-loader' },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      hash: true,
       title: 'react',
       inject: true,
       template: './src/index.html', // 模板地址
