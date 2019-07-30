@@ -1,31 +1,13 @@
 import React from 'react';
-import { render } from 'react-dom';
+import ReactDOM from 'react-dom';
 
-import './index.css';
-import { Router, Route, hashHistory } from 'react-router'
-import List from './modules/List'
-import App from './modules/App'
-import ButtonExample from './modules/ButtonExample'
-import SliderNum from './modules/SliderNum'
-import PopItem from './modules/popitem'
-import TodoBox from './modules/todobox'
-import ZoomLevel from './modules/ZoomLevel'
-import Demo from './modules/RumbleCharts'
-import NavigationControl from './modules/navigationcontrol'
-import Autobind from './modules/Autobind'
+const value = 'demo1';
+const buttonName = 'submit';
 
-
-render((
-  <Router history={hashHistory}>
-    <Route path="/" component={List}/>
-    <Route path="/app" component={App}/>
-    <Route path="/buttonexample" component={ButtonExample}/>
-    <Route path="/slidernum" component={SliderNum}/>
-    <Route path="/popitem" component={PopItem}/>
-    <Route path="/todobox" component={TodoBox}/>
-    <Route path="/zoomlevel" component={ZoomLevel}/>
-    <Route path="/rumble" component={Demo}/>
-    <Route path="/navigationcontrol" component={NavigationControl}/>
-    <Route path="/autobind" component={Autobind}/>
-  </Router>
-), document.getElementById('root'))
+ReactDOM.render(
+    <div>
+      <input type="text" value={value}/>
+      <button>{buttonName}</button>
+    </div>,
+    document.getElementById('app'),
+);
