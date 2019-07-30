@@ -1,3 +1,14 @@
+# React-Webpack-Template
+
+### How to initizal your react project
+
+```shell
+# project with typescript 
+npx degit brandonxiang/react-webpack-template#ts project-name
+# project without typescript
+npx degit brandonxiang/react-webpack-template project-name
+```
+
 # React笔记三：从0开始搭建项目配置
 
 随着[create-react-app](https://github.com/facebook/create-react-app)，[create-react-native-app](https://github.com/react-community/create-react-native-app)，[vue-cli](https://github.com/vuejs/vue-cli)和[poi](https://github.com/egoist/poi)等一系列脚手架的大行其道，让很多入门级的前端工程师往往并不知道webpack最基础的原理与配置方法。
