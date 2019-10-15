@@ -1,5 +1,9 @@
 # React-Webpack-Template
 
+<a href="https://github.com/brandonxiang/react-webpack-template/blob/master/LICENSE">
+  <img src="https://img.shields.io/github/license/brandonxiang/react-webpack-template" alt="license">
+</a>
+
 ### How to initizal your react project
 
 ```shell
